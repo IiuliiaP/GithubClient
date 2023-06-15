@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GithubClient</string>
+    <string name="counter_1">счетчик 1</string>
+    <string name="counter_2">счетчик 2</string>
+    <string name="counter_3">счетчик 3</string>
+    <string name="start_count_button">0</string>
 </resources>
