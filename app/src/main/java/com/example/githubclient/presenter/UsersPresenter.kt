@@ -2,6 +2,7 @@ package com.example.githubclient.presenter
 
 import com.example.githubclient.model.GithubUser
 import com.example.githubclient.model.GithubUsersRepo
+import com.example.githubclient.navigation.AndroidScreens
 import com.example.githubclient.presenter.list.IUsersListPresenter
 import com.example.githubclient.view.UsersView
 import com.example.githubclient.view.list.IUserIItemView
@@ -13,9 +14,8 @@ class UsersPresenter(val usersRepo: GithubUsersRepo, val router: Router): MvpPre
     class UsersListPresenter : IUsersListPresenter {
         val users = mutableListOf<GithubUser>()
 
-        override var itemClickListener: ((IUserIItemView) -> Unit)?
-            get() = TODO("Not yet implemented")
-            set(value) {}
+        override var itemClickListener: ((IUserIItemView) -> Unit)? = null
+
 
         override fun bindView(view: IUserIItemView) {
             val user = users[view.pos]
@@ -34,7 +34,7 @@ class UsersPresenter(val usersRepo: GithubUsersRepo, val router: Router): MvpPre
         loadData()
 
         usersListPresenter.itemClickListener = {
-            iUserIItemView ->  
+            iUserIItemView ->  router.navigateTo(AndroidScreens().login())
         }
     }
 
